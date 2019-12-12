@@ -1,0 +1,26 @@
+.ElementSelection{
+    margin: 0 auto;
+    width: 70%;
+}
+
+.ElementSelection h3{
+    text-align: left;
+}
+
+.ElementSelection input{
+    margin-right: 20px;
+}
+
+.ElementSelection p{
+    font-size: 18px;
+    width: 50%;
+}
+
+.ElementSelection p span{
+    cursor: pointer;
+}
+
+.selectionWrap {
+    display: flex;
+    flex-wrap: wrap;
+}

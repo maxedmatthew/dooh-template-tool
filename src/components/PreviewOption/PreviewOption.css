@@ -1,0 +1,36 @@
+/* BEGIN - Component: PreviewOption */
+
+.previewBtnRow{
+  background: #EEF2F9;
+  border-radius: 50px;
+  width: fit-content;
+  width: -moz-fit-content;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.previewBtnRow button{
+  border: none;
+  border-radius: 50px;
+  padding: 15px 25px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.previewBtnRow button:hover{
+  background: rgba(255, 255, 255, 0.55);
+  transition: .1s ease-in;
+}
+
+@media screen and (max-width: 1250px){
+  .previewBtnRow{
+    background: transparent;
+  }
+  .previewBtnRow button{
+    display: block;
+    margin: 0 auto;
+    padding: 10px 15px;
+  }
+}
+
+/* END - Component: PreviewOption */

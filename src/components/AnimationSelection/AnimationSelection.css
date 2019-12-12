@@ -1,0 +1,22 @@
+.AnimationSelection {
+    width: 70%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.AnimationSelection h3{
+    text-align: left !important;
+}
+
+.selectFormAnimation{
+    width: 50%;
+    background: white;
+    border: none;
+    padding: 9px 8px;
+    height: 40px;
+}
+
+.AnimationSelection p span, .AnimationSelection p select{
+    width: 50%;
+    display: inline-block;
+}
