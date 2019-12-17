@@ -1,47 +1,31 @@
 import React, { Component } from 'react';
+import AnimationComponent from './AnimationComponent';
 import './AnimationSelection.css';
 
 class AnimationSelection extends Component {
+
+    loadElement = () => {
+        this.props.curElements.map(elem => {
+            if(elem.selected === true){
+                return (<AnimationComponent />);
+             }
+             return elem;   
+        })
+    }
+
     render() {
         return (
             <div className="AnimationSelection">
                 <h3>Choose your animation</h3>
-                <p>
-                    <span>Logo / Brandname</span>
-                    <select name="LogoAnimation" className="selectFormAnimation">
-                        <option value="noAnimation">-- No animation --</option>
-                        <option value="Optie2">Appear animation</option>
-                        <option value="Optie3">Change content</option>
-                        <option value="Optie4">Attention animation</option>
-                    </select>
-                </p>
-                <p>
-                    <span>Main title</span>
-                    <select name="LogoAnimation" className="selectFormAnimation">
-                        <option value="noAnimation">-- No animation --</option>
-                        <option value="Optie2">Appear animation</option>
-                        <option value="Optie3">Change content</option>
-                        <option value="Optie4">Attention animation</option>
-                    </select>
-                </p>
-                <p>
-                    <span>Subtitle</span>
-                    <select name="LogoAnimation" className="selectFormAnimation">
-                        <option value="noAnimation">-- No animation --</option>
-                        <option value="Optie2">Appear animation</option>
-                        <option value="Optie3">Change content</option>
-                        <option value="Optie4">Attention animation</option>
-                    </select>
-                </p>
-                <p>
-                    <span>Productimage</span>
-                    <select name="LogoAnimation" className="selectFormAnimation">
-                        <option value="noAnimation">-- No animation --</option>
-                        <option value="Optie2">Appear animation</option>
-                        <option value="Optie3">Change content</option>
-                        <option value="Optie4">Attention animation</option>
-                    </select>
-                </p>
+
+
+                {this.props.curElements.map(elem => {
+                    if(elem.selected === true){
+                        return (<AnimationComponent key={elem.id} element={elem} possibleAnimation={elem.possibleAnimation} handleSubmit={this.props.handleSubmit} />);
+                    }
+                    return '';   
+                })}               
+               
             </div>
         )
     }
