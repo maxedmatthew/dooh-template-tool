@@ -60,6 +60,7 @@ button:focus {
 
 .categoryButtons, .rightContent{
   margin: 0 auto;
+  text-align: center;
 }
 
 .nextBtn{
@@ -102,8 +103,39 @@ button:focus {
   font-weight: 700;
 }
 
+.exportBtn{
+  background: #25AE88;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  display: none;
+  margin: 40px auto 0;
+}
+.exportBtn:hover{
+  background: #118968;
+  transition: .1s ease-in;
+}
+
+.exportBtn *{
+  vertical-align: middle;
+  color: #ffffff;
+}
+
+.exportBtn i{
+  font-weight: 700;
+}
+
 .backBtn i::before{
   font-size: 11px;
   padding-right: 10px;
   color: #0d1036;
+}
+
+.endStyleLeft{
+  display: none;
+}
+
+.endStyleRight{
+  background: #EEF2F9;
 }

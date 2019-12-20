@@ -20,3 +20,12 @@
     width: 50%;
     display: inline-block;
 }
+
+.checkWarning{
+    float: right;
+}
+
+.checkIcon{
+    width: 20px;
+    margin-right: 5px;
+}

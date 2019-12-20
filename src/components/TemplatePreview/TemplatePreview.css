@@ -2,6 +2,7 @@
 	margin: 0 auto;
 	transition: 0.5s cubic-bezier(0, .21, 0, .98);
 	box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.1);
+	background: #fff;
 }
 
 
@@ -40,88 +41,90 @@
 }
 
 .logo,
-.hoofdTitel,
-.subTitel {
+.main-title,
+.subtitle {
 	background: #D6DCE6;
 	transition: 0.5s cubic-bezier(0, .21, 0, .98);
+	z-index: 2;
 }
 
-.productAfbeelding,
-.productVideo {
+.productimage,
+.productvideo {
 	background: #E2E6ED;
 	transition: 0.5s cubic-bezier(0, .21, 0, .98);
+	z-index: 2;
 }
 
-.backgroundVideo,
-.backgroundImage {
+.backgroundvideo,
+.background-image {
 	background: repeating-linear-gradient(45deg,#eef2fa,#eef2fa 20px,#ffffff 20px,#ffffff 40px);
 	transition: 0.5s cubic-bezier(0, .21, 0, .98);
 	height: 98.5%;
 	width: 97%;
-	position: absolute;
-	z-index: -1;
+	position: absolute !important;
+	z-index: 1;
 }
 
-.backgroundVideo span,
-.backgroundImage span{
+.backgroundvideo span,
+.background-image span{
 	color: #cccdd1 !important;
     background: #ffffff80;
 }
 
-
-.pancakeElement {
+.pancake-element {
 	background: #adb1b7;
 	width: 110px;
 	height: 110px;
 	border-radius: 50%;
-	position: absolute;
+	position: absolute !important;
+	z-index: 3;
 }
 
-.pancakeElement span {
+.pancake-element span {
 	font-size: 13px !important;
 }
 
-.Product .backgroundVideo span,
-.Frame .backgroundVideo span,
-.Product .backgroundImage span,
-.Frame .backgroundImage span {
+.Product .backgroundvideo span,
+.Frame .backgroundvideo span,
+.Product .background-image span,
+.Frame .background-image span {
 	position: absolute;
 	left: -81px;
 	font-size: 15px !important;
 	transform: rotate(90deg);
 }
 
-.Frame .backgroundVideo span,
-.Frame .backgroundImage span {
+.Frame .backgroundvideo span,
+.Frame .background-image span {
 	bottom: 73px;
 	left: -77px;
 }
 
-.Frame.LandscapePrv .backgroundVideo span,
-.Frame.LandscapePrv .backgroundImage span {
+.Frame.LandscapePrv .backgroundvideo span,
+.Frame.LandscapePrv .background-image span {
 	left: auto;
 	right: -80px;
 	bottom: auto;
 }
 
-.LandscapePrv .backgroundVideo,
-.LandscapePrv .backgroundImage {
+.LandscapePrv .backgroundvideo,
+.LandscapePrv .background-image {
 	height: 97%;
 	width: 98%;
 }
 
-.Product.LandscapePrv .backgroundVideo,
-.Product.LandscapePrv .backgroundImage {
+.Product.LandscapePrv .backgroundvideo,
+.Product.LandscapePrv .background-image {
 	transform: translateX(-25.5%);
 }
 
-.Frame.LandscapePrv .backgroundVideo,
-.Frame.LandscapePrv .backgroundImage {
+.Frame.LandscapePrv .backgroundvideo,
+.Frame.LandscapePrv .background-image {
 	transform: translateX(-27.5%);
 }
 
-.SquaredPrv .backgroundVideo,
-.SquaredPrv .backgroundImage {
+.SquaredPrv .backgroundvideo,
+.SquaredPrv .background-image {
 	height: 98%;
 	width: 98%;
 }
@@ -138,6 +141,15 @@
 	font-size: 18px;
 	text-transform: uppercase;
 	color: #fff;
+	position: relative;
+}
+
+.selected { 
+	position: absolute !important;
+	width: 20px;
+	height: 20px;
+	padding: 0px !important;
+	right: -9px;
 }
 
 @media screen and (max-width: 1460px) {
@@ -169,23 +181,23 @@
 	width: 44%;
 }
 
-.Product.PortraitPrv .productAfbeelding,
-.Product.PortraitPrv .productVideo {
+.Product.PortraitPrv .productimage,
+.Product.PortraitPrv .productvideo {
 	height: 59%;
 	width: 83%;
 }
 
-.Product.PortraitPrv .hoofdTitel {
+.Product.PortraitPrv .main-title {
 	height: 12%;
 	width: 72%;
 }
 
-.Product.PortraitPrv .subTitel {
+.Product.PortraitPrv .subtitle {
 	height: 8%;
 	width: 40%;
 }
 
-.Product.PortraitPrv .pancakeElement {
+.Product.PortraitPrv .pancake-element {
     right: 3%;
     top: 34%
 }
@@ -201,25 +213,25 @@
 	width: 26%;
 }
 
-.Product.LandscapePrv .productAfbeelding,
-.Product.LandscapePrv .productVideo {
+.Product.LandscapePrv .productimage,
+.Product.LandscapePrv .productvideo {
 	height: 78%;
 	width: 45%;
 	transform: translateX(-105%);
 	position: absolute;
 }
 
-.Product.LandscapePrv .hoofdTitel {
+.Product.LandscapePrv .main-title {
 	height: 21%;
 	width: 41%;
 }
 
-.Product.LandscapePrv .subTitel {
+.Product.LandscapePrv .subtitle {
 	height: 14%;
 	width: 23%;
 }
 
-.Product.LandscapePrv .pancakeElement {
+.Product.LandscapePrv .pancake-element {
     left: 9%;
 }
 
@@ -230,23 +242,23 @@
 	width: 34%;
 }
 
-.Product.SquaredPrv .productAfbeelding,
-.Product.SquaredPrv .productVideo {
+.Product.SquaredPrv .productimage,
+.Product.SquaredPrv .productvideo {
 	height: 55%;
 	width: 44%;
 }
 
-.Product.SquaredPrv .hoofdTitel {
+.Product.SquaredPrv .main-title {
 	height: 16%;
 	width: 53%;
 }
 
-.Product.SquaredPrv .subTitel {
+.Product.SquaredPrv .subtitle {
 	height: 7%;
 	width: 45%;
 }
 
-.Product.SquaredPrv .pancakeElement {
+.Product.SquaredPrv .pancake-element {
     right: 18%;
     top: 34%
 }
@@ -262,27 +274,27 @@
 	bottom: 10%;
 }
 
-.Message.PortraitPrv .hoofdTitel {
+.Message.PortraitPrv .main-title {
 	height: 14%;
 	width: 76%;
 	position: absolute;
 	top: 8%;
 }
 
-.Message.PortraitPrv .subTitel {
+.Message.PortraitPrv .subtitle {
 	height: 5%;
 	width: 44%;
 	position: absolute;
 	bottom: 3%;
 }
 
-.Message.PortraitPrv .productAfbeelding,
-.Message.PortraitPrv .productVideo {
+.Message.PortraitPrv .productimage,
+.Message.PortraitPrv .productvideo {
 	height: 59%;
 	width: 83%;
 }
 
-.Message.PortraitPrv .pancakeElement {
+.Message.PortraitPrv .pancake-element {
     right: 5%;
 }
 
@@ -295,27 +307,27 @@
 	top: 4%;
 }
 
-.Message.LandscapePrv .hoofdTitel {
+.Message.LandscapePrv .main-title {
 	height: 20%;
 	width: 54%;
 	position: absolute;
 	bottom: 13%;
 }
 
-.Message.LandscapePrv .subTitel {
+.Message.LandscapePrv .subtitle {
 	height: 9%;
 	width: 25%;
 	position: absolute;
 	bottom: 2%;
 }
 
-.Message.LandscapePrv .productAfbeelding,
-.Message.LandscapePrv .productVideo {
+.Message.LandscapePrv .productimage,
+.Message.LandscapePrv .productvideo {
 	height: 78%;
 	width: 45%;
 }
 
-.Message.LandscapePrv .pancakeElement {
+.Message.LandscapePrv .pancake-element {
     right: 5%;
     width: 120px;
     height: 120px;
@@ -330,27 +342,27 @@
 	top: 4%;
 }
 
-.Message.SquaredPrv .hoofdTitel {
+.Message.SquaredPrv .main-title {
 	height: 18%;
 	width: 81%;
 	position: absolute;
 	bottom: 12%;
 }
 
-.Message.SquaredPrv .subTitel {
+.Message.SquaredPrv .subtitle {
 	height: 8%;
 	width: 40%;
 	position: absolute;
 	bottom: 2%;
 }
 
-.Message.SquaredPrv .productAfbeelding,
-.Message.SquaredPrv .productVideo {
+.Message.SquaredPrv .productimage,
+.Message.SquaredPrv .productvideo {
 	height: 55%;
 	width: 44%;
 }
 
-.Message.SquaredPrv .pancakeElement {
+.Message.SquaredPrv .pancake-element {
     right: 5%;
     width: 120px;
     height: 120px;
@@ -368,29 +380,29 @@
 	bottom: 4%;
 }
 
-.Frame.PortraitPrv .productAfbeelding,
-.Frame.PortraitPrv .productVideo {
+.Frame.PortraitPrv .productimage,
+.Frame.PortraitPrv .productvideo {
 	height: 57%;
 	width: 97%;
 	position: absolute;
 	top: 1%;
 }
 
-.Frame.PortraitPrv .hoofdTitel {
+.Frame.PortraitPrv .main-title {
 	height: 12%;
 	width: 56%;
 	position: absolute;
 	bottom: 25%;
 }
 
-.Frame.PortraitPrv .subTitel {
+.Frame.PortraitPrv .subtitle {
 	height: 8%;
 	width: 56%;
 	position: absolute;
 	bottom: 12%;
 }
 
-.Frame.PortraitPrv .pancakeElement {
+.Frame.PortraitPrv .pancake-element {
     right: 3%;
     top: auto;
 }
@@ -408,29 +420,29 @@
 	bottom: 17.5%;
 }
 
-.Frame.LandscapePrv .productAfbeelding,
-.Frame.LandscapePrv .productVideo {
+.Frame.LandscapePrv .productimage,
+.Frame.LandscapePrv .productvideo {
 	height: 95%;
 	width: 52%;
 	transform: translateX(-95.5%);
 	position: absolute;
 }
 
-.Frame.LandscapePrv .hoofdTitel {
+.Frame.LandscapePrv .main-title {
 	height: 21%;
 	width: 32%;
 	position: absolute;
 	top: 17.5%;
 }
 
-.Frame.LandscapePrv .subTitel {
+.Frame.LandscapePrv .subtitle {
 	height: 14%;
 	width: 32%;
 	position: absolute;
 	top: 47.5%;
 }
 
-.Frame.LandscapePrv .pancakeElement {
+.Frame.LandscapePrv .pancake-element {
     left: 12%;
 }
 
@@ -445,28 +457,28 @@
 	bottom: 2%;
 }
 
-.Frame.SquaredPrv .productAfbeelding,
-.Frame.SquaredPrv .productVideo {
+.Frame.SquaredPrv .productimage,
+.Frame.SquaredPrv .productvideo {
 	height: 55%;
 	width: 98%;
 	position: absolute;
 	top: 1%;
 }
 
-.Frame.SquaredPrv .hoofdTitel {
+.Frame.SquaredPrv .main-title {
 	height: 15%;
 	width: 64%;
 	position: absolute;
 	bottom: 26%;
 }
 
-.Frame.SquaredPrv .subTitel {
+.Frame.SquaredPrv .subtitle {
 	height: 10%;
 	width: 64%;
 	position: absolute;
 	bottom: 15%;
 }
 
-.Frame.SquaredPrv .pancakeElement {
+.Frame.SquaredPrv .pancake-element {
     right:3%;
 }
