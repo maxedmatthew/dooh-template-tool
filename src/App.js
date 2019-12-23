@@ -9,6 +9,7 @@ import PreviewOption from './components/PreviewOption/PreviewOption';
 import TemplatePreview from './components/TemplatePreview/TemplatePreview';
 import ElementSelection from './components/ElementSelection/ElementSelection';
 import AnimationSelection from './components/AnimationSelection/AnimationSelection';
+import startProces from './utils/startProces'
 
 class App extends Component {
   state = {
@@ -20,19 +21,19 @@ class App extends Component {
     elementChosen: false,
     animationChosen: false,
     previewMode: 'Portrait',
-    chosenElements : [
+    chosenElements: [
       {
         id: 1,
         element: 'logo',
         selected: false,
         mouseOn: false,
         animation: 'Geen animatie',
-        possibleAnimation : {
-          standardAnimation : ['Geen animatie'],
-          attentionAnimation : [
+        possibleAnimation: {
+          standardAnimation: ['Geen animatie'],
+          attentionAnimation: [
 
           ],
-          appearAnimation : [
+          appearAnimation: [
             'Appear animatie - Bounce in',
             'Appear animatie - Bounce in down',
             'Appear animatie - Bounce in left',
@@ -60,12 +61,12 @@ class App extends Component {
         selected: false,
         mouseOn: false,
         animation: 'Appear animatie - Flip in X',
-        possibleAnimation : {
-          standardAnimation : [
+        possibleAnimation: {
+          standardAnimation: [
             'Geen animatie',
             'Veranderen content'
           ],
-          attentionAnimation : [
+          attentionAnimation: [
             'Attention animatie - Flash',
             'Attention animatie - Shake',
             'Attention animatie - Pulse',
@@ -73,7 +74,7 @@ class App extends Component {
             'Attention animatie - Heartbeat',
             'Attention animatie - Flip'
           ],
-          appearAnimation : [
+          appearAnimation: [
             'Appear animatie - Bounce in',
             'Appear animatie - Bounce in down',
             'Appear animatie - Bounce in left',
@@ -101,11 +102,11 @@ class App extends Component {
         selected: false,
         mouseOn: false,
         animation: 'Appear animatie - Slide in up',
-        possibleAnimation : {
-          standardAnimation : [
+        possibleAnimation: {
+          standardAnimation: [
             'Geen animatie'
           ],
-          attentionAnimation : [
+          attentionAnimation: [
             'Attention animatie - Flash',
             'Attention animatie - Shake',
             'Attention animatie - Pulse',
@@ -113,7 +114,7 @@ class App extends Component {
             'Attention animatie - Heartbeat',
             'Attention animatie - Flip'
           ],
-          appearAnimation : [
+          appearAnimation: [
             'Appear animatie - Bounce in',
             'Appear animatie - Bounce in down',
             'Appear animatie - Bounce in left',
@@ -141,11 +142,11 @@ class App extends Component {
         selected: false,
         mouseOn: false,
         animation: 'Geen animatie',
-        possibleAnimation : {
-          standardAnimation : [
+        possibleAnimation: {
+          standardAnimation: [
             'Geen animatie'
           ],
-          attentionAnimation : [
+          attentionAnimation: [
             'Attention animatie - Flash',
             'Attention animatie - Shake',
             'Attention animatie - Pulse',
@@ -153,7 +154,7 @@ class App extends Component {
             'Attention animatie - Heartbeat',
             'Attention animatie - Flip'
           ],
-          appearAnimation : [
+          appearAnimation: [
           ]
         }
       },
@@ -163,15 +164,15 @@ class App extends Component {
         selected: false,
         mouseOn: false,
         animation: 'Geen animatie',
-        possibleAnimation : {
-          standardAnimation : [
+        possibleAnimation: {
+          standardAnimation: [
             'Geen animatie',
             'Langzaam vergroten',
             'Veranderen content'
           ],
-          attentionAnimation : [
+          attentionAnimation: [
           ],
-          appearAnimation : [
+          appearAnimation: [
           ]
         }
       },
@@ -181,11 +182,11 @@ class App extends Component {
         selected: false,
         mouseOn: false,
         animation: 'Geen animatie',
-        possibleAnimation : {
-          standardAnimation : [
+        possibleAnimation: {
+          standardAnimation: [
             'Geen animatie'
           ],
-          attentionAnimation : [
+          attentionAnimation: [
             'Attention animatie - Flash',
             'Attention animatie - Shake',
             'Attention animatie - Pulse',
@@ -193,7 +194,7 @@ class App extends Component {
             'Attention animatie - Heartbeat',
             'Attention animatie - Flip'
           ],
-          appearAnimation : [
+          appearAnimation: [
           ]
         }
       },
@@ -203,11 +204,11 @@ class App extends Component {
         selected: false,
         mouseOn: false,
         animation: 'Attention animatie - Pulse',
-        possibleAnimation : {
-          standardAnimation : [
+        possibleAnimation: {
+          standardAnimation: [
             'Geen animatie'
           ],
-          attentionAnimation : [
+          attentionAnimation: [
             'Attention animatie - Flash',
             'Attention animatie - Shake',
             'Attention animatie - Pulse',
@@ -215,7 +216,7 @@ class App extends Component {
             'Attention animatie - Heartbeat',
             'Attention animatie - Flip'
           ],
-          appearAnimation : [
+          appearAnimation: [
             'Appear animatie - Bounce in',
             'Appear animatie - Bounce in down',
             'Appear animatie - Bounce in left',
@@ -243,49 +244,53 @@ class App extends Component {
         selected: false,
         mouseOn: false,
         animation: 'Geen animatie',
-        possibleAnimation : {
-          standardAnimation : [
+        possibleAnimation: {
+          standardAnimation: [
             'Geen animatie',
             'Langzaam vergroten',
             'Veranderen content'
           ],
-          attentionAnimation : [
+          attentionAnimation: [
           ],
-          appearAnimation : [
+          appearAnimation: [
           ]
         }
       }
     ]
   }
 
-  changeCanvas = (e) =>{
+  changeCanvas = (e) => {
     this.setState({ previewMode: e });
   }
 
   changeCategory = (f) => {
     this.setState({ currentCategory: f });
-    
+
     // If category is ... change state so the right elements are selected
-    if (f === 'Product' || f === 'Frame'){
-      this.setState({ chosenElements: this.state.chosenElements.map(elem =>{
-        if(elem.element === 'productimage' || elem.element === 'logo' || elem.element === 'main-title' || elem.element === 'subtitle'){
-          elem.selected = true;
-        }
-        if(elem.element === 'backgroundvideo' || elem.element === 'background-image' || elem.element === 'pancake-element' || elem.element === 'productvideo'){
-          elem.selected = false;
-        }
-        return elem;
-      }) });
-    }else if (f === 'Message'){
-      this.setState({ chosenElements: this.state.chosenElements.map(elem =>{
-        if(elem.element === 'backgroundvideo' || elem.element === 'logo' || elem.element === 'main-title' || elem.element === 'subtitle'){
-          elem.selected = true;
-        }
-        if(elem.element === 'productimage' || elem.element === 'background-image' || elem.element === 'pancake-element' || elem.element === 'productvideo'){
-          elem.selected = false;
-        }
-        return elem;
-      }) });
+    if (f === 'Product' || f === 'Frame') {
+      this.setState({
+        chosenElements: this.state.chosenElements.map(elem => {
+          if (elem.element === 'productimage' || elem.element === 'logo' || elem.element === 'main-title' || elem.element === 'subtitle') {
+            elem.selected = true;
+          }
+          if (elem.element === 'backgroundvideo' || elem.element === 'background-image' || elem.element === 'pancake-element' || elem.element === 'productvideo') {
+            elem.selected = false;
+          }
+          return elem;
+        })
+      });
+    } else if (f === 'Message') {
+      this.setState({
+        chosenElements: this.state.chosenElements.map(elem => {
+          if (elem.element === 'backgroundvideo' || elem.element === 'logo' || elem.element === 'main-title' || elem.element === 'subtitle') {
+            elem.selected = true;
+          }
+          if (elem.element === 'productimage' || elem.element === 'background-image' || elem.element === 'pancake-element' || elem.element === 'productvideo') {
+            elem.selected = false;
+          }
+          return elem;
+        })
+      });
     }
 
   }
@@ -293,13 +298,15 @@ class App extends Component {
   // Change element in state when it's get selected
   changeElement = (g) => {
 
-    this.setState({ chosenElements: this.state.chosenElements.map(elem => {
-      if(elem.element === g){
+    this.setState({
+      chosenElements: this.state.chosenElements.map(elem => {
+        if (elem.element === g) {
           elem.selected = !elem.selected;
-       }
-       return elem;
-    }) });
-  
+        }
+        return elem;
+      })
+    });
+
     // Function that prevent double elements
 
     const prodImSel = this.state.chosenElements.find(x => x.element === 'productimage').selected;
@@ -308,41 +315,49 @@ class App extends Component {
     const bgImSel = this.state.chosenElements.find(x => x.element === 'background-image').selected;
     const bgVidSel = this.state.chosenElements.find(x => x.element === 'backgroundvideo').selected;
 
-    if (g === 'productvideo'){
-      if (prodImSel === true){
-        this.setState({ chosenElements: this.state.chosenElements.map(elem => {
-          if(elem.element === 'productimage'){
+    if (g === 'productvideo') {
+      if (prodImSel === true) {
+        this.setState({
+          chosenElements: this.state.chosenElements.map(elem => {
+            if (elem.element === 'productimage') {
               elem.selected = !elem.selected;
-           }
-           return elem;
-        }) });
+            }
+            return elem;
+          })
+        });
       }
-    } else if (g === 'productimage'){
-      if (prodVidSel === true){
-        this.setState({ chosenElements: this.state.chosenElements.map(elem => {
-          if(elem.element === 'productvideo'){
+    } else if (g === 'productimage') {
+      if (prodVidSel === true) {
+        this.setState({
+          chosenElements: this.state.chosenElements.map(elem => {
+            if (elem.element === 'productvideo') {
               elem.selected = !elem.selected;
-           }
-           return elem;
-        }) });
+            }
+            return elem;
+          })
+        });
       }
-    } else if (g === 'backgroundvideo'){
-      if (bgImSel === true){
-        this.setState({ chosenElements: this.state.chosenElements.map(elem => {
-          if(elem.element === 'background-image'){
+    } else if (g === 'backgroundvideo') {
+      if (bgImSel === true) {
+        this.setState({
+          chosenElements: this.state.chosenElements.map(elem => {
+            if (elem.element === 'background-image') {
               elem.selected = !elem.selected;
-           }
-           return elem;
-        }) });
+            }
+            return elem;
+          })
+        });
       }
-    } else if (g === 'background-image'){
-      if (bgVidSel === true){
-        this.setState({ chosenElements: this.state.chosenElements.map(elem => {
-          if(elem.element === 'backgroundvideo'){
+    } else if (g === 'background-image') {
+      if (bgVidSel === true) {
+        this.setState({
+          chosenElements: this.state.chosenElements.map(elem => {
+            if (elem.element === 'backgroundvideo') {
               elem.selected = !elem.selected;
-           }
-           return elem;
-        }) });
+            }
+            return elem;
+          })
+        });
       }
     }
 
@@ -353,104 +368,116 @@ class App extends Component {
     const elementName = event.target.name;
     const newValue = event.target.value;
 
-    this.setState({ chosenElements: this.state.chosenElements.map(elem => {
-      if(elem.element === elementName){
+    this.setState({
+      chosenElements: this.state.chosenElements.map(elem => {
+        if (elem.element === elementName) {
           elem.animation = newValue;
-       }
-       return elem;
-    }) });
+        }
+        return elem;
+      })
+    });
 
     console.log(`De value van ${elementName} is nu ${newValue}`);
   }
 
   animationElementOnHover = (e) => {
-      this.setState({ chosenElements: this.state.chosenElements.map(elem => {
-        if(elem.element === e){
-            elem.mouseOn = !elem.mouseOn;
-            console.log(this.state.chosenElements.find(x => x.element === e).mouseOn);
-         }
-         return elem;
-      }) });
+    this.setState({
+      chosenElements: this.state.chosenElements.map(elem => {
+        if (elem.element === e) {
+          elem.mouseOn = !elem.mouseOn;
+          console.log(this.state.chosenElements.find(x => x.element === e).mouseOn);
+        }
+        return elem;
+      })
+    });
   }
 
   animationElementOffHover = (f) => {
-    this.setState({ chosenElements: this.state.chosenElements.map(elem => {
-      if(elem.element === f){
+    this.setState({
+      chosenElements: this.state.chosenElements.map(elem => {
+        if (elem.element === f) {
           elem.mouseOn = !elem.mouseOn;
           console.log(this.state.chosenElements.find(x => x.element === f).mouseOn);
-       }
-       return elem;
-    }) });
+        }
+        return elem;
+      })
+    });
   }
 
   buttonAction = () => {
     const f = this.state.currentCategory;
-
-    if (this.state.categoryChosen === false && this.state.elementChosen === false && this.state.animationChosen === false){      
-      if (f !== ''){
+    console.log('hoi')
+    if (this.state.categoryChosen === false && this.state.elementChosen === false && this.state.animationChosen === false) {
+      if (f !== '') {
         this.setState({ categoryChosen: true, currentButton: 'Choose animation', currentBackButton: 'Back to category' });
-      }else{
-        if(this.state.currentWarning === ''){
-            this.setState({ currentWarning: 'First select a category'});
-            setTimeout(() => {
-              this.setState({ currentWarning: ''});
-            }, 5000);
+      } else {
+        if (this.state.currentWarning === '') {
+          this.setState({ currentWarning: 'First select a category' });
+          setTimeout(() => {
+            this.setState({ currentWarning: '' });
+          }, 5000);
 
         }
       }
       console.log(this.state);
-    } else if (this.state.categoryChosen === true && this.state.elementChosen === false && this.state.animationChosen === false){
+    } else if (this.state.categoryChosen === true && this.state.elementChosen === false && this.state.animationChosen === false) {
       this.setState({ elementChosen: true, currentButton: 'See DOOH overview', currentBackButton: 'Back to elements' });
       console.log(this.state);
     } else if (this.state.categoryChosen === true && this.state.elementChosen === true && this.state.animationChosen === false) {
       this.setState({ animationChosen: true, currentButton: 'Export DOOH', currentBackButton: 'Back to animation' });
-      
+
       console.log('Kijk je overview');
-    } else if (this.state.categoryChosen === true && this.state.elementChosen === true && this.state.animationChosen === true) {
-      
-      
-      // Export
-      console.log('export started');
-      console.log(this.state);
     }
+    // else if (this.state.categoryChosen === true && this.state.elementChosen === true && this.state.animationChosen === true) {
+    //   // Export
+    //   console.log('export started');
+    //   console.log(this.state);
+    //   startProces(this.state)
+    // }
+  }
+
+  exportAction = () => {
+    console.log('export started');
+    console.log(this.state);
+    startProces(this.state)
   }
 
   backBtnAction = () => {
-    if (this.state.categoryChosen === false && this.state.elementChosen === false && this.state.animationChosen === false){
+    if (this.state.categoryChosen === false && this.state.elementChosen === false && this.state.animationChosen === false) {
 
-    } else if (this.state.categoryChosen === true && this.state.elementChosen === false && this.state.animationChosen === false){
+    } else if (this.state.categoryChosen === true && this.state.elementChosen === false && this.state.animationChosen === false) {
 
       // Back to choose category
       this.changeCategory(this.state.currentCategory);
-      this.setState({ categoryChosen: false, currentButton: 'Choose elements', currentBackButton: ''});
+      this.setState({ categoryChosen: false, currentButton: 'Choose elements', currentBackButton: '' });
 
-    } else if (this.state.categoryChosen === true && this.state.elementChosen === true && this.state.animationChosen === false){
+    } else if (this.state.categoryChosen === true && this.state.elementChosen === true && this.state.animationChosen === false) {
       this.setState({ elementChosen: false, currentButton: 'Choose animation', currentBackButton: 'Back to category' });
-    } else if (this.state.categoryChosen === true && this.state.elementChosen === true && this.state.animationChosen === true){
+    } else if (this.state.categoryChosen === true && this.state.elementChosen === true && this.state.animationChosen === true) {
       this.setState({ animationChosen: false, currentButton: 'See DOOH overview', currentBackButton: 'Back to elements' });
     }
   }
-  
+
   loadComponent = () => {
-    if (this.state.categoryChosen === false && this.state.elementChosen === false && this.state.animationChosen === false){
+    if (this.state.categoryChosen === false && this.state.elementChosen === false && this.state.animationChosen === false) {
       // Display categorie-option component
-      return( <CategoryButtons changeCategory={this.changeCategory} curCat={this.state.currentCategory} curWarning={this.state.currentWarning} />);
-    } else if (this.state.categoryChosen === true && this.state.elementChosen === false && this.state.animationChosen === false){
+      return (<CategoryButtons changeCategory={this.changeCategory} curCat={this.state.currentCategory} curWarning={this.state.currentWarning} />);
+    } else if (this.state.categoryChosen === true && this.state.elementChosen === false && this.state.animationChosen === false) {
       // Display element-option component
-      return( <ElementSelection changeElement={this.changeElement} isSelected={this.state.chosenElements}/> );
-    } else if (this.state.categoryChosen === true && this.state.elementChosen === true && this.state.animationChosen === false){
+      return (<ElementSelection changeElement={this.changeElement} isSelected={this.state.chosenElements} />);
+    } else if (this.state.categoryChosen === true && this.state.elementChosen === true && this.state.animationChosen === false) {
       // Display animation-option component
-      return( <AnimationSelection curElements={this.state.chosenElements} handleSubmit={this.changeAnimation} animationElementOnHover={this.animationElementOnHover} animationElementOffHover={this.animationElementOffHover} /> );
-    } else if (this.state.categoryChosen === true && this.state.elementChosen === true && this.state.animationChosen === true){
+      return (<AnimationSelection curElements={this.state.chosenElements} handleSubmit={this.changeAnimation} animationElementOnHover={this.animationElementOnHover} animationElementOffHover={this.animationElementOffHover} />);
+    } else if (this.state.categoryChosen === true && this.state.elementChosen === true && this.state.animationChosen === true) {
       // Display end-preview component
     }
   }
 
   backBtnStyle = () => {
-    if (this.state.categoryChosen === true){
-      return{ display: 'block'}
-    } else{
-      return{ display: 'none'}
+    if (this.state.categoryChosen === true) {
+      return { display: 'block' }
+    } else {
+      return { display: 'none' }
     }
   }
 
@@ -463,7 +490,7 @@ class App extends Component {
       elementChosen: false,
       animationChosen: false,
       previewMode: 'Portrait',
-      chosenElements : [
+      chosenElements: [
         {
           id: 1,
           element: 'logo',
@@ -518,7 +545,7 @@ class App extends Component {
   }
 
   leftColClass = () => {
-    if (this.state.animationChosen === true){
+    if (this.state.animationChosen === true) {
       return 'leftCol endStyleLeft';
     } else {
       return 'col-md-6 leftCol';
@@ -526,7 +553,7 @@ class App extends Component {
   }
 
   rightColClass = () => {
-    if (this.state.animationChosen === true){
+    if (this.state.animationChosen === true) {
       return 'col-md-12 rightCol endStyleRight';
     } else {
       return 'col-md-6 rightCol';
@@ -548,7 +575,7 @@ class App extends Component {
               <div className="col-md-10 rightContent">
                 <PreviewOption changeCanvas={this.changeCanvas} curCat={this.state.currentCategory} previewMode={this.state.previewMode} anmChosen={this.state.animationChosen} />
                 <TemplatePreview curCat={this.state.currentCategory} previewMode={this.state.previewMode} isSelected={this.state.chosenElements} elementChosen={this.state.elementChosen} />
-                <button className="exportBtn" style={this.state.animationChosen ? { display:'block'} : {display : 'none'}} onClick={this.exportAction}>Export DOOH <i className="flaticon-right"></i></button>
+                <button className="exportBtn" style={this.state.animationChosen ? { display: 'block' } : { display: 'none' }} onClick={this.exportAction}>Export DOOH <i className="flaticon-right"></i></button>
               </div>
             </div>
           </div>
