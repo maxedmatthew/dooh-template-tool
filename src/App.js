@@ -9,6 +9,7 @@ import PreviewOption from './components/PreviewOption/PreviewOption';
 import TemplatePreview from './components/TemplatePreview/TemplatePreview';
 import ElementSelection from './components/ElementSelection/ElementSelection';
 import AnimationSelection from './components/AnimationSelection/AnimationSelection';
+import startProces from './utils/startProces';
  
 class App extends Component {
   state = {
@@ -409,13 +410,7 @@ class App extends Component {
         chosenElements: this.state.chosenElements
       })
       console.log('See your overview');
-    } else if (this.state.categoryChosen === true && this.state.elementChosen === true && this.state.animationChosen === true) {
-      
-      
-      // Export
-      console.log('export started');
-      console.log(this.state);
-    }
+    } 
   }
 
   backBtnAction = () => {
@@ -704,6 +699,12 @@ class App extends Component {
       }
     ]
     })
+  }
+
+  exportAction = () => {
+    console.log('export started');
+    console.log(this.state);
+    startProces(this.state);
   }
 
   leftColClass = () => {
