@@ -217,7 +217,7 @@
 .Product.LandscapePrv .productvideo {
 	height: 78%;
 	width: 45%;
-	transform: translateX(-105%);
+	left: -20.5%;
 	position: absolute;
 }
 
@@ -424,7 +424,7 @@
 .Frame.LandscapePrv .productvideo {
 	height: 95%;
 	width: 52%;
-	transform: translateX(-95.5%);
+	left: -25.5%;
 	position: absolute;
 }
 

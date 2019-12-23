@@ -12,9 +12,15 @@ class TemplatePreview extends Component {
         const chosen = this.props.elementChosen;
         const animation = this.props.isSelected.find(x => x.element === p).animation;
 
-        if (chosen === true && animation === 'Langzaam vergroten'){
-            returnObj.transform = 'scale(1.3)';
-            returnObj.transition = 'ease-in 7s';
+        if (chosen === true && animation === 'Langzaam vergroten' && this.props.curCat === 'Product' && this.props.previewMode === 'Landscape'){
+            returnObj.transform = 'scale(1.2) translateX(-25.5%)';
+            returnObj.transition = 'ease-in 3s';
+        } else if (chosen === true && animation === 'Langzaam vergroten' && this.props.curCat === 'Frame' && this.props.previewMode === 'Landscape'){
+            returnObj.transform = 'scale(1.2) translateX(-27.5%)';
+            returnObj.transition = 'ease-in 3s';
+        } else if (chosen === true && animation === 'Langzaam vergroten'){
+            returnObj.transform = 'scale(1.2)';
+            returnObj.transition = 'ease-in 3s';
         }
 
         // If hover over the select-box of the element is active, add shadow and backgroundcolor to styling of element
@@ -38,15 +44,20 @@ class TemplatePreview extends Component {
         }
 
         // If no subtitle at Frame category, change position of maintitle / logo
-        if (this.props.curCat === 'Frame' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'main-title'){
-            returnObj.transform = 'translateY(35%)';
+        if (
+            (this.props.curCat === 'Frame' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'main-title' && this.props.previewMode === 'Portrait') ||
+            (this.props.curCat === 'Frame' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'main-title' && this.props.previewMode === 'Squared')
+            ){
+            returnObj.bottom = '22%';
+        } else if (this.props.curCat === 'Frame' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'main-title' && this.props.previewMode === 'Landscape'){
+            returnObj.top = '25%';
         } else if (
             (this.props.curCat === 'Frame' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'logo' && this.props.previewMode === 'Portrait') || 
-            (this.props.curCat === 'Frame' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'logo' && this.props.previewMode === 'Landscape')
+            (this.props.curCat === 'Frame' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'logo' && this.props.previewMode === 'Squared')
             ){
-            returnObj.transform = 'translateY(-60%)';
-        } else if (this.props.curCat === 'Frame' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'logo' && this.props.previewMode === 'Squared'){
-            returnObj.transform = 'translateY(-30%)';
+            returnObj.bottom = '8%';
+        } else if (this.props.curCat === 'Frame' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'logo' && this.props.previewMode === 'Landscape'){
+            returnObj.bottom = '25.5%';
         }
 
         return returnObj;
@@ -133,39 +144,39 @@ class TemplatePreview extends Component {
         const previewMode = this.props.previewMode;
 
         return (
-            <div className={`previewTemplate ${previewMode}Prv ${category}`}>
+            <div className={`previewTemplate ${previewMode}Prv ${category}`} style={this.props.animationChosen && previewMode === 'Portrait' ? { width:'310px', height: '550px'} : { }}>
                 <div className="innerElements">
                     <div className={this.posAnimation('logo')} style={this.getStyle('logo')}>
                         <span>Logo</span>
-                        <img className="selected" style={this.animationStyle('logo')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/selected.png" alt="check"></img>
+                        <img className="selected" style={this.animationStyle('logo')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animated.png" alt="check"></img>
                     </div>
                     <div className={this.posAnimation('productimage')} style={this.getStyle('productimage')}>
                         <span>Product-image</span>
-                        <img className="selected" style={this.animationStyle('productimage')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/selected.png" alt="check"></img>
+                        <img className="selected" style={this.animationStyle('productimage')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animated.png" alt="check"></img>
                     </div>
                     <div className={this.posAnimation('productvideo')} style={this.getStyle('productvideo')}>
                         <span>Product-video</span>
-                        <img className="selected" style={this.animationStyle('productvideo')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/selected.png" alt="check"></img>
+                        <img className="selected" style={this.animationStyle('productvideo')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animated.png" alt="check"></img>
                     </div>
                     <div className={this.posAnimation('main-title')} style={this.getStyle('main-title')}>
                         <span>Main title</span>
-                        <img className="selected" style={this.animationStyle('main-title')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/selected.png" alt="check"></img>
+                        <img className="selected" style={this.animationStyle('main-title')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animated.png" alt="check"></img>
                     </div>
                     <div className={this.posAnimation('subtitle')} style={this.getStyle('subtitle')}>
                         <span>Subtitle</span>
-                        <img className="selected" style={this.animationStyle('subtitle')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/selected.png" alt="check"></img>
+                        <img className="selected" style={this.animationStyle('subtitle')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animated.png" alt="check"></img>
                     </div> 
                     <div className={this.posAnimation('backgroundvideo')} style={this.getStyle('backgroundvideo')}>
                         <span className="bg-vid-span">Background-video</span>
-                        <img className="selected" style={this.animationStyle('backgroundvideo')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/selected.png" alt="check"></img>
+                        <img className="selected" style={this.animationStyle('backgroundvideo')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animated.png" alt="check"></img>
                     </div>
                     <div className={this.posAnimation('background-image')} style={this.getStyle('background-image')}>
                         <span className="bg-vid-span">Background-image</span>
-                        <img className="selected" style={this.animationStyle('background-image')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/selected.png" alt="check"></img>
+                        <img className="selected" style={this.animationStyle('background-image')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animated.png" alt="check"></img>
                     </div>
                     <div className={this.posAnimation('pancake-element')}  style={this.getStyle('pancake-element')}>
                         <span>Pancake Element</span>
-                        <img className="selected" style={this.animationStyle('pancake-element')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/selected.png" alt="check"></img>
+                        <img className="selected" style={this.animationStyle('pancake-element')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animated.png" alt="check"></img>
                     </div>
                 </div>
             </div>

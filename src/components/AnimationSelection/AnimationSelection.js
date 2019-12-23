@@ -23,7 +23,7 @@ class AnimationSelection extends Component {
                     }
                     return '';   
                 })} 
-                <p className="checkWarning"><img className="checkIcon" src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/selected.png" alt="check"></img> = Animation selected</p>              
+                <p className="checkWarning"><img className="checkIcon" src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animated.png" alt="check"></img> = Animation selected</p>              
                
             </div>
         )
