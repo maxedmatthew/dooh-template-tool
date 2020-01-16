@@ -6,13 +6,13 @@ class PreviewOption extends Component {
     getStyle = (e) => {
         const previewMode = this.props.previewMode;
         if(previewMode === e){
-            return { backgroundColor: '#6A73D0', color: '#fff'}
+            return { backgroundColor: '#ffffff', boxShadow: '0 0 8px 0 rgba(0,0,0,.1)'}
         }
     }
 
     getRowStyle = () => {
         if(this.props.anmChosen === true){
-            return {backgroundColor: '#ffffff'}
+            return {backgroundColor: 'rgba(255, 255, 255, 0.50)'}
         }
     }
 

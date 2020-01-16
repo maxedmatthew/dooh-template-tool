@@ -62,7 +62,7 @@ class AnimationComponent extends Component {
 
         return (
             <p>
-                <span>{this.firstCaparalize(this.props.element.element)}</span>
+                <span>{this.firstCaparalize(this.props.element.fullName)}</span>
                 <select name={this.props.element.element} className="selectFormAnimation" onChange={this.props.handleSubmit} defaultValue={this.props.element.animation} onMouseOver={this.props.mouseOnElement.bind(this, this.props.element.element)} onMouseOut={this.props.mouseOffElement.bind(this, this.props.element.element)} >
                     {this.standardAnimation()}
                     {this.appearAnimation()}

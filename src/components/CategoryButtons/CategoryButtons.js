@@ -20,11 +20,11 @@ class CategoryButtons extends Component {
                         <div className="information">
                             <span className="rTriangle"></span>
                             <h4>Product</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis.</p>
+                            <p>The product category is characterized by the product image at the center of the design. Use this category if a product or service is central to the design.</p>
                             <h4 className="extra-margin">Message</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis.</p>
+                            <p>With the message category you can transfer a message to the target group. This category is characterized by the background video and associated elements.</p>
                             <h4 className="extra-margin">Frame</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis.</p>
+                            <p>The frame category is versatile. This category is often used to offer a product (or service). However, transferring a message is also possible.</p>
                         </div>
                     </div>
                 </h3>

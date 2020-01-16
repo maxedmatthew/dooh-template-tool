@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'animate.css/animate.min.css';
 import './icon-style/flaticon.css'
 import './App.css';
+import 'downloadjs/download.js';
 
 import CategoryButtons from './components/CategoryButtons/CategoryButtons';
 import PreviewOption from './components/PreviewOption/PreviewOption';
@@ -21,10 +22,12 @@ class App extends Component {
     elementChosen: false,
     animationChosen: false,
     previewMode: 'Portrait',
+    exportClicked: false,
     chosenElements: [
       {
         id: 1,
         element: 'logo',
+        fullName: 'Logo',
         selected: false,
         mouseOn: false,
         animation: 'Geen animatie',
@@ -34,111 +37,114 @@ class App extends Component {
 
           ],
           appearAnimation: [
-            'Appear animatie - Bounce in',
-            'Appear animatie - Bounce in down',
-            'Appear animatie - Bounce in left',
-            'Appear animatie - Bounce in right',
-            'Appear animatie - Bounce in up',
-            'Appear animatie - Fade in',
-            'Appear animatie - Fade in down',
-            'Appear animatie - Fade in left',
-            'Appear animatie - Fade in right',
-            'Appear animatie - Fade in up',
-            'Appear animatie - Flip in X',
-            'Appear animatie - Flip in Y',
-            'Appear animatie - Slide in down',
-            'Appear animatie - Slide in left',
-            'Appear animatie - Slide in right',
-            'Appear animatie - Slide in up',
-            'Appear animatie - Zoom in',
-            'Appear animatie - Jack in the box'
+            'Bounce in',
+            'Bounce in down',
+            'Bounce in left',
+            'Bounce in right',
+            'Bounce in up',
+            'Fade in',
+            'Fade in down',
+            'Fade in left',
+            'Fade in right',
+            'Fade in up',
+            'Flip in X',
+            'Flip in Y',
+            'Slide in down',
+            'Slide in left',
+            'Slide in right',
+            'Slide in up',
+            'Zoom in',
+            'Jack in the box'
           ]
         }
       },
       {
         id: 2,
-        element: 'main-title',
+        element: 'title',
+        fullName: 'Main title',
         selected: false,
         mouseOn: false,
-        animation: 'Appear animatie - Flip in X',
+        animation: 'Flip in X',
         possibleAnimation: {
           standardAnimation: [
             'Geen animatie',
             'Veranderen content'
           ],
           attentionAnimation: [
-            'Attention animatie - Flash',
-            'Attention animatie - Shake',
-            'Attention animatie - Pulse',
-            'Attention animatie - Tada',
-            'Attention animatie - Heartbeat',
-            'Attention animatie - Flip'
+            'Flash',
+            'Shake',
+            'Pulse',
+            'Tada',
+            'Heartbeat',
+            'Flip'
           ],
           appearAnimation: [
-            'Appear animatie - Bounce in',
-            'Appear animatie - Bounce in down',
-            'Appear animatie - Bounce in left',
-            'Appear animatie - Bounce in right',
-            'Appear animatie - Bounce in up',
-            'Appear animatie - Fade in',
-            'Appear animatie - Fade in down',
-            'Appear animatie - Fade in left',
-            'Appear animatie - Fade in right',
-            'Appear animatie - Fade in up',
-            'Appear animatie - Flip in X',
-            'Appear animatie - Flip in Y',
-            'Appear animatie - Slide in down',
-            'Appear animatie - Slide in left',
-            'Appear animatie - Slide in right',
-            'Appear animatie - Slide in up',
-            'Appear animatie - Zoom in',
-            'Appear animatie - Jack in the box'
+            'Bounce in',
+            'Bounce in down',
+            'Bounce in left',
+            'Bounce in right',
+            'Bounce in up',
+            'Fade in',
+            'Fade in down',
+            'Fade in left',
+            'Fade in right',
+            'Fade in up',
+            'Flip in X',
+            'Flip in Y',
+            'Slide in down',
+            'Slide in left',
+            'Slide in right',
+            'Slide in up',
+            'Zoom in',
+            'Jack in the box'
           ]
         }
       },
       {
         id: 3,
         element: 'subtitle',
+        fullName: 'Subtitle',
         selected: false,
         mouseOn: false,
-        animation: 'Appear animatie - Slide in up',
+        animation: 'Slide in up',
         possibleAnimation: {
           standardAnimation: [
             'Geen animatie'
           ],
           attentionAnimation: [
-            'Attention animatie - Flash',
-            'Attention animatie - Shake',
-            'Attention animatie - Pulse',
-            'Attention animatie - Tada',
-            'Attention animatie - Heartbeat',
-            'Attention animatie - Flip'
+            'Flash',
+            'Shake',
+            'Pulse',
+            'Tada',
+            'Heartbeat',
+            'Flip'
           ],
           appearAnimation: [
-            'Appear animatie - Bounce in',
-            'Appear animatie - Bounce in down',
-            'Appear animatie - Bounce in left',
-            'Appear animatie - Bounce in right',
-            'Appear animatie - Bounce in up',
-            'Appear animatie - Fade in',
-            'Appear animatie - Fade in down',
-            'Appear animatie - Fade in left',
-            'Appear animatie - Fade in right',
-            'Appear animatie - Fade in up',
-            'Appear animatie - Flip in X',
-            'Appear animatie - Flip in Y',
-            'Appear animatie - Slide in down',
-            'Appear animatie - Slide in left',
-            'Appear animatie - Slide in right',
-            'Appear animatie - Slide in up',
-            'Appear animatie - Zoom in',
-            'Appear animatie - Jack in the box'
+            'Bounce in',
+            'Bounce in down',
+            'Bounce in left',
+            'Bounce in right',
+            'Bounce in up',
+            'Fade in',
+            'Fade in down',
+            'Fade in left',
+            'Fade in right',
+            'Fade in up',
+            'Flip in X',
+            'Flip in Y',
+            'Slide in down',
+            'Slide in left',
+            'Slide in right',
+            'Slide in up',
+            'Zoom in',
+            'Jack in the box'
           ]
         }
       },
       {
         id: 4,
-        element: 'productimage',
+        element: 'product_image',
+        fullName: 'Product-image',
         selected: false,
         mouseOn: false,
         animation: 'Geen animatie',
@@ -147,12 +153,12 @@ class App extends Component {
             'Geen animatie'
           ],
           attentionAnimation: [
-            'Attention animatie - Flash',
-            'Attention animatie - Shake',
-            'Attention animatie - Pulse',
-            'Attention animatie - Tada',
-            'Attention animatie - Heartbeat',
-            'Attention animatie - Flip'
+            'Flash',
+            'Shake',
+            'Pulse',
+            'Tada',
+            'Heartbeat',
+            'Flip'
           ],
           appearAnimation: [
           ]
@@ -160,7 +166,8 @@ class App extends Component {
       },
       {
         id: 5,
-        element: 'backgroundvideo',
+        element: 'video_bg',
+        fullName: 'Background-video',
         selected: false,
         mouseOn: false,
         animation: 'Geen animatie',
@@ -178,7 +185,8 @@ class App extends Component {
       },
       {
         id: 6,
-        element: 'productvideo',
+        element: 'product_video',
+        fullName: 'Product-video',
         selected: false,
         mouseOn: false,
         animation: 'Geen animatie',
@@ -187,12 +195,12 @@ class App extends Component {
             'Geen animatie'
           ],
           attentionAnimation: [
-            'Attention animatie - Flash',
-            'Attention animatie - Shake',
-            'Attention animatie - Pulse',
-            'Attention animatie - Tada',
-            'Attention animatie - Heartbeat',
-            'Attention animatie - Flip'
+            'Flash',
+            'Shake',
+            'Pulse',
+            'Tada',
+            'Heartbeat',
+            'Flip'
           ],
           appearAnimation: [
           ]
@@ -200,47 +208,49 @@ class App extends Component {
       },
       {
         id: 7,
-        element: 'pancake-element',
+        element: 'pancake',
+        fullName: 'Pancake element',
         selected: false,
         mouseOn: false,
-        animation: 'Attention animatie - Pulse',
+        animation: 'Pulse',
         possibleAnimation: {
           standardAnimation: [
             'Geen animatie'
           ],
           attentionAnimation: [
-            'Attention animatie - Flash',
-            'Attention animatie - Shake',
-            'Attention animatie - Pulse',
-            'Attention animatie - Tada',
-            'Attention animatie - Heartbeat',
-            'Attention animatie - Flip'
+            'Flash',
+            'Shake',
+            'Pulse',
+            'Tada',
+            'Heartbeat',
+            'Flip'
           ],
           appearAnimation: [
-            'Appear animatie - Bounce in',
-            'Appear animatie - Bounce in down',
-            'Appear animatie - Bounce in left',
-            'Appear animatie - Bounce in right',
-            'Appear animatie - Bounce in up',
-            'Appear animatie - Fade in',
-            'Appear animatie - Fade in down',
-            'Appear animatie - Fade in left',
-            'Appear animatie - Fade in right',
-            'Appear animatie - Fade in up',
-            'Appear animatie - Flip in X',
-            'Appear animatie - Flip in Y',
-            'Appear animatie - Slide in down',
-            'Appear animatie - Slide in left',
-            'Appear animatie - Slide in right',
-            'Appear animatie - Slide in up',
-            'Appear animatie - Zoom in',
-            'Appear animatie - Jack in the box'
+            'Bounce in',
+            'Bounce in down',
+            'Bounce in left',
+            'Bounce in right',
+            'Bounce in up',
+            'Fade in',
+            'Fade in down',
+            'Fade in left',
+            'Fade in right',
+            'Fade in up',
+            'Flip in X',
+            'Flip in Y',
+            'Slide in down',
+            'Slide in left',
+            'Slide in right',
+            'Slide in up',
+            'Zoom in',
+            'Jack in the box'
           ]
         }
       },
       {
         id: 8,
-        element: 'background-image',
+        element: 'image_bg',
+        fullName: 'Background-image',
         selected: false,
         mouseOn: false,
         animation: 'Geen animatie',
@@ -269,20 +279,20 @@ class App extends Component {
     // If category is ... change state so the right elements are selected
     if (f === 'Product' || f === 'Frame'){
       this.setState({ chosenElements: this.state.chosenElements.map(elem =>{
-        if(elem.element === 'productimage' || elem.element === 'logo' || elem.element === 'main-title' || elem.element === 'subtitle'){
+        if(elem.element === 'product_image' || elem.element === 'logo' || elem.element === 'title' || elem.element === 'subtitle'){
           elem.selected = true;
         }
-        if(elem.element === 'backgroundvideo' || elem.element === 'background-image' || elem.element === 'pancake-element' || elem.element === 'productvideo'){
+        if(elem.element === 'video_bg' || elem.element === 'image_bg' || elem.element === 'pancake' || elem.element === 'product_video'){
           elem.selected = false;
         }
         return elem;
       }) });
     }else if (f === 'Message'){
       this.setState({ chosenElements: this.state.chosenElements.map(elem =>{
-        if(elem.element === 'backgroundvideo' || elem.element === 'logo' || elem.element === 'main-title' || elem.element === 'subtitle'){
+        if(elem.element === 'video_bg' || elem.element === 'logo' || elem.element === 'title' || elem.element === 'subtitle'){
           elem.selected = true;
         }
-        if(elem.element === 'productimage' || elem.element === 'background-image' || elem.element === 'pancake-element' || elem.element === 'productvideo'){
+        if(elem.element === 'product_image' || elem.element === 'image_bg' || elem.element === 'pancake' || elem.element === 'product_video'){
           elem.selected = false;
         }
         return elem;
@@ -305,50 +315,50 @@ class App extends Component {
 
     // Function that prevent double elements
 
-    const prodImSel = this.state.chosenElements.find(x => x.element === 'productimage').selected;
-    const prodVidSel = this.state.chosenElements.find(x => x.element === 'productvideo').selected;
+    const prodImSel = this.state.chosenElements.find(x => x.element === 'product_image').selected;
+    const prodVidSel = this.state.chosenElements.find(x => x.element === 'product_video').selected;
 
-    const bgImSel = this.state.chosenElements.find(x => x.element === 'background-image').selected;
-    const bgVidSel = this.state.chosenElements.find(x => x.element === 'backgroundvideo').selected;
+    const bgImSel = this.state.chosenElements.find(x => x.element === 'image_bg').selected;
+    const bgVidSel = this.state.chosenElements.find(x => x.element === 'video_bg').selected;
 
-    if (g === 'productvideo') {
+    if (g === 'product_video') {
       if (prodImSel === true) {
         this.setState({
           chosenElements: this.state.chosenElements.map(elem => {
-            if (elem.element === 'productimage') {
+            if (elem.element === 'product_image') {
               elem.selected = !elem.selected;
             }
             return elem;
           })
         });
       }
-    } else if (g === 'productimage') {
+    } else if (g === 'product_image') {
       if (prodVidSel === true) {
         this.setState({
           chosenElements: this.state.chosenElements.map(elem => {
-            if (elem.element === 'productvideo') {
+            if (elem.element === 'product_video') {
               elem.selected = !elem.selected;
             }
             return elem;
           })
         });
       }
-    } else if (g === 'backgroundvideo') {
+    } else if (g === 'video_bg') {
       if (bgImSel === true) {
         this.setState({
           chosenElements: this.state.chosenElements.map(elem => {
-            if (elem.element === 'background-image') {
+            if (elem.element === 'image_bg') {
               elem.selected = !elem.selected;
             }
             return elem;
           })
         });
       }
-    } else if (g === 'background-image') {
+    } else if (g === 'image_bg') {
       if (bgVidSel === true) {
         this.setState({
           chosenElements: this.state.chosenElements.map(elem => {
-            if (elem.element === 'backgroundvideo') {
+            if (elem.element === 'video_bg') {
               elem.selected = !elem.selected;
             }
             return elem;
@@ -381,7 +391,7 @@ class App extends Component {
       chosenElements: this.state.chosenElements.map(elem => {
         if (elem.element === e) {
           elem.mouseOn = !elem.mouseOn;
-          console.log(this.state.chosenElements.find(x => x.element === e).mouseOn);
+          // console.log(this.state.chosenElements.find(x => x.element === e).mouseOn);
         }
         return elem;
       })
@@ -393,7 +403,7 @@ class App extends Component {
       chosenElements: this.state.chosenElements.map(elem => {
         if (elem.element === f) {
           elem.mouseOn = !elem.mouseOn;
-          console.log(this.state.chosenElements.find(x => x.element === f).mouseOn);
+          // console.log(this.state.chosenElements.find(x => x.element === f).mouseOn);
         }
         return elem;
       })
@@ -402,7 +412,7 @@ class App extends Component {
 
   buttonAction = () => {
     const f = this.state.currentCategory;
-    console.log('hoi')
+
     if (this.state.categoryChosen === false && this.state.elementChosen === false && this.state.animationChosen === false) {
       if (f !== '') {
         this.setState({ categoryChosen: true, currentButton: 'Choose animation', currentBackButton: 'Back to category' });
@@ -415,21 +425,29 @@ class App extends Component {
 
         }
       }
-      console.log(this.state);
     } else if (this.state.categoryChosen === true && this.state.elementChosen === false && this.state.animationChosen === false) {
       this.setState({ elementChosen: true, currentButton: 'See DOOH overview', currentBackButton: 'Back to elements' });
-      console.log(this.state);
+      console.log('hi-1');
     } else if (this.state.categoryChosen === true && this.state.elementChosen === true && this.state.animationChosen === false) {
       this.setState({ animationChosen: true, currentButton: 'Export DOOH', currentBackButton: 'Back to animation' });
+      
+      this.setState({ elementChosen: false });
+      setTimeout(() => {
+        console.log('actie2');
+        this.setState({ elementChosen: true });
+      }, 10);
 
-      console.log('Kijk je overview');
     }
   }
 
   exportAction = () => {
-    console.log('export started');
-    console.log(this.state);
-    startProces(this.state)
+    console.log('------- export started -------');
+    
+    this.setState({ exportClicked: true });
+    
+    console.log(this.state.exportClicked);
+    
+    startProces(this.state);
   }
 
   backBtnAction = () => {
@@ -494,65 +512,65 @@ class App extends Component {
 
           ],
           appearAnimation : [
-            'Appear animatie - Bounce in',
-            'Appear animatie - Bounce in down',
-            'Appear animatie - Bounce in left',
-            'Appear animatie - Bounce in right',
-            'Appear animatie - Bounce in up',
-            'Appear animatie - Fade in',
-            'Appear animatie - Fade in down',
-            'Appear animatie - Fade in left',
-            'Appear animatie - Fade in right',
-            'Appear animatie - Fade in up',
-            'Appear animatie - Flip in X',
-            'Appear animatie - Flip in Y',
-            'Appear animatie - Slide in down',
-            'Appear animatie - Slide in left',
-            'Appear animatie - Slide in right',
-            'Appear animatie - Slide in up',
-            'Appear animatie - Zoom in',
-            'Appear animatie - Jack in the box'
+            'Bounce in',
+            'Bounce in down',
+            'Bounce in left',
+            'Bounce in right',
+            'Bounce in up',
+            'Fade in',
+            'Fade in down',
+            'Fade in left',
+            'Fade in right',
+            'Fade in up',
+            'Flip in X',
+            'Flip in Y',
+            'Slide in down',
+            'Slide in left',
+            'Slide in right',
+            'Slide in up',
+            'Zoom in',
+            'Jack in the box'
           ]
         }
       },
       {
         id: 2,
-        element: 'main-title',
+        element: 'title',
         selected: false,
         mouseOn: false,
-        animation: 'Appear animatie - Flip in X',
+        animation: 'Flip in X',
         possibleAnimation : {
           standardAnimation : [
             'Geen animatie',
             'Veranderen content'
           ],
           attentionAnimation : [
-            'Attention animatie - Flash',
-            'Attention animatie - Shake',
-            'Attention animatie - Pulse',
-            'Attention animatie - Tada',
-            'Attention animatie - Heartbeat',
-            'Attention animatie - Flip'
+            'Flash',
+            'Shake',
+            'Pulse',
+            'Tada',
+            'Heartbeat',
+            'Flip'
           ],
           appearAnimation : [
-            'Appear animatie - Bounce in',
-            'Appear animatie - Bounce in down',
-            'Appear animatie - Bounce in left',
-            'Appear animatie - Bounce in right',
-            'Appear animatie - Bounce in up',
-            'Appear animatie - Fade in',
-            'Appear animatie - Fade in down',
-            'Appear animatie - Fade in left',
-            'Appear animatie - Fade in right',
-            'Appear animatie - Fade in up',
-            'Appear animatie - Flip in X',
-            'Appear animatie - Flip in Y',
-            'Appear animatie - Slide in down',
-            'Appear animatie - Slide in left',
-            'Appear animatie - Slide in right',
-            'Appear animatie - Slide in up',
-            'Appear animatie - Zoom in',
-            'Appear animatie - Jack in the box'
+            'Bounce in',
+            'Bounce in down',
+            'Bounce in left',
+            'Bounce in right',
+            'Bounce in up',
+            'Fade in',
+            'Fade in down',
+            'Fade in left',
+            'Fade in right',
+            'Fade in up',
+            'Flip in X',
+            'Flip in Y',
+            'Slide in down',
+            'Slide in left',
+            'Slide in right',
+            'Slide in up',
+            'Zoom in',
+            'Jack in the box'
           ]
         }
       },
@@ -561,44 +579,44 @@ class App extends Component {
         element: 'subtitle',
         selected: false,
         mouseOn: false,
-        animation: 'Appear animatie - Slide in up',
+        animation: 'Slide in up',
         possibleAnimation : {
           standardAnimation : [
             'Geen animatie'
           ],
           attentionAnimation : [
-            'Attention animatie - Flash',
-            'Attention animatie - Shake',
-            'Attention animatie - Pulse',
-            'Attention animatie - Tada',
-            'Attention animatie - Heartbeat',
-            'Attention animatie - Flip'
+            'Flash',
+            'Shake',
+            'Pulse',
+            'Tada',
+            'Heartbeat',
+            'Flip'
           ],
           appearAnimation : [
-            'Appear animatie - Bounce in',
-            'Appear animatie - Bounce in down',
-            'Appear animatie - Bounce in left',
-            'Appear animatie - Bounce in right',
-            'Appear animatie - Bounce in up',
-            'Appear animatie - Fade in',
-            'Appear animatie - Fade in down',
-            'Appear animatie - Fade in left',
-            'Appear animatie - Fade in right',
-            'Appear animatie - Fade in up',
-            'Appear animatie - Flip in X',
-            'Appear animatie - Flip in Y',
-            'Appear animatie - Slide in down',
-            'Appear animatie - Slide in left',
-            'Appear animatie - Slide in right',
-            'Appear animatie - Slide in up',
-            'Appear animatie - Zoom in',
-            'Appear animatie - Jack in the box'
+            'Bounce in',
+            'Bounce in down',
+            'Bounce in left',
+            'Bounce in right',
+            'Bounce in up',
+            'Fade in',
+            'Fade in down',
+            'Fade in left',
+            'Fade in right',
+            'Fade in up',
+            'Flip in X',
+            'Flip in Y',
+            'Slide in down',
+            'Slide in left',
+            'Slide in right',
+            'Slide in up',
+            'Zoom in',
+            'Jack in the box'
           ]
         }
       },
       {
         id: 4,
-        element: 'productimage',
+        element: 'product_image',
         selected: false,
         mouseOn: false,
         animation: 'Geen animatie',
@@ -607,12 +625,12 @@ class App extends Component {
             'Geen animatie'
           ],
           attentionAnimation : [
-            'Attention animatie - Flash',
-            'Attention animatie - Shake',
-            'Attention animatie - Pulse',
-            'Attention animatie - Tada',
-            'Attention animatie - Heartbeat',
-            'Attention animatie - Flip'
+            'Flash',
+            'Shake',
+            'Pulse',
+            'Tada',
+            'Heartbeat',
+            'Flip'
           ],
           appearAnimation : [
           ]
@@ -620,7 +638,7 @@ class App extends Component {
       },
       {
         id: 5,
-        element: 'backgroundvideo',
+        element: 'video_bg',
         selected: false,
         mouseOn: false,
         animation: 'Geen animatie',
@@ -638,7 +656,7 @@ class App extends Component {
       },
       {
         id: 6,
-        element: 'productvideo',
+        element: 'product_video',
         selected: false,
         mouseOn: false,
         animation: 'Geen animatie',
@@ -647,12 +665,12 @@ class App extends Component {
             'Geen animatie'
           ],
           attentionAnimation : [
-            'Attention animatie - Flash',
-            'Attention animatie - Shake',
-            'Attention animatie - Pulse',
-            'Attention animatie - Tada',
-            'Attention animatie - Heartbeat',
-            'Attention animatie - Flip'
+            'Flash',
+            'Shake',
+            'Pulse',
+            'Tada',
+            'Heartbeat',
+            'Flip'
           ],
           appearAnimation : [
           ]
@@ -660,47 +678,47 @@ class App extends Component {
       },
       {
         id: 7,
-        element: 'pancake-element',
+        element: 'pancake',
         selected: false,
         mouseOn: false,
-        animation: 'Attention animatie - Pulse',
+        animation: 'Pulse',
         possibleAnimation : {
           standardAnimation : [
             'Geen animatie'
           ],
           attentionAnimation : [
-            'Attention animatie - Flash',
-            'Attention animatie - Shake',
-            'Attention animatie - Pulse',
-            'Attention animatie - Tada',
-            'Attention animatie - Heartbeat',
-            'Attention animatie - Flip'
+            'Flash',
+            'Shake',
+            'Pulse',
+            'Tada',
+            'Heartbeat',
+            'Flip'
           ],
           appearAnimation : [
-            'Appear animatie - Bounce in',
-            'Appear animatie - Bounce in down',
-            'Appear animatie - Bounce in left',
-            'Appear animatie - Bounce in right',
-            'Appear animatie - Bounce in up',
-            'Appear animatie - Fade in',
-            'Appear animatie - Fade in down',
-            'Appear animatie - Fade in left',
-            'Appear animatie - Fade in right',
-            'Appear animatie - Fade in up',
-            'Appear animatie - Flip in X',
-            'Appear animatie - Flip in Y',
-            'Appear animatie - Slide in down',
-            'Appear animatie - Slide in left',
-            'Appear animatie - Slide in right',
-            'Appear animatie - Slide in up',
-            'Appear animatie - Zoom in',
-            'Appear animatie - Jack in the box'
+            'Bounce in',
+            'Bounce in down',
+            'Bounce in left',
+            'Bounce in right',
+            'Bounce in up',
+            'Fade in',
+            'Fade in down',
+            'Fade in left',
+            'Fade in right',
+            'Fade in up',
+            'Flip in X',
+            'Flip in Y',
+            'Slide in down',
+            'Slide in left',
+            'Slide in right',
+            'Slide in up',
+            'Zoom in',
+            'Jack in the box'
           ]
         }
       },
       {
         id: 8,
-        element: 'background-image',
+        element: 'image_bg',
         selected: false,
         mouseOn: false,
         animation: 'Geen animatie',

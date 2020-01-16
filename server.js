@@ -4,15 +4,13 @@ const fs = require('fs');
 const unzipper = require('unzipper');
 const multer = require('multer');
 const archiver = require('archiver');
-// const download = require('download-file')
+
 
 const upload = multer({
   limits: {
     fieldSize: 25 * 1024 * 1024
   }
 });
-
-
 
 const zipfiles = async () => new Promise((resolve, reject) => {
   const output = fs.createWriteStream('public/output/studio-template.studio');
@@ -33,7 +31,7 @@ const zipfiles = async () => new Promise((resolve, reject) => {
     // })
     // })
   );
-
+  
   archive.on('error', (e) => reject(e));
   archive.pipe(output);
   archive.directory('public/creationDir', '/');
@@ -46,6 +44,7 @@ const writeFiles = (req, state) => {
   const psd = JSON.parse(req.body.ori);
   // const tempData = JSON.parse(req.body.template);
   fs.writeFileSync('public/creationDir/studio-template.psd', Buffer.from(psd));
+  // comment deze line uit om de originele state.json te behouden
   fs.writeFileSync('public/creationDir/state.json', Buffer.from(state));
 
   let metaData = {
@@ -56,6 +55,7 @@ const writeFiles = (req, state) => {
 
   let data = JSON.stringify(metaData);
   fs.writeFileSync('public/creationDir/meta.json', data);
+  
   zipfiles();
 }
 
@@ -79,6 +79,7 @@ const readFiles = (path, req) => {
 }
 
 app.post('/readOriPsd', (req, res) => {
+  res.connection.setTimeout(0);
   const readPSD = () => {
     const buffer = fs.readFileSync('public/originalPSD.psd');
     res.json(buffer);
@@ -87,7 +88,12 @@ app.post('/readOriPsd', (req, res) => {
 });
 
 app.post('/writeNewFile', upload.none(), function (req, res, next) {
+  res.connection.setTimeout(0);
   readFiles('public/input/studioFile.studio', req);
+})
+
+app.get('/downloadFile/', (req, res) => {
+  res.download('./public/output/studio-template.studio');
 })
 
 app.use(express.static('readOriPsd'));

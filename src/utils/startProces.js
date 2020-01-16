@@ -3,7 +3,7 @@ import writePSD from './writePsd';
 
 const startProces = (activeTemplate) => {
   $.post('/readOriPsd', function (data) {
-    return writePSD(data, activeTemplate)
+    writePSD(data, activeTemplate)
   })
 }
 

@@ -24,10 +24,10 @@ class TemplatePreview extends Component {
         }
 
         // If hover over the select-box of the element is active, add shadow and backgroundcolor to styling of element
-        if (this.props.isSelected.find(x => x.element === p).mouseOn === true && p !== 'backgroundvideo' && p !== "background-image"){
+        if (this.props.isSelected.find(x => x.element === p).mouseOn === true && p !== 'video_bg' && p !== "image_bg"){
             returnObj.boxShadow = 'rgb(52, 174, 135) 0px 0px 20px 0px';
             returnObj.background = '#34ae87';
-        } else if ((this.props.isSelected.find(x => x.element === p).mouseOn === true && p === 'backgroundvideo') || (this.props.isSelected.find(x => x.element === p).mouseOn === true && p === 'background-image' )) {
+        } else if ((this.props.isSelected.find(x => x.element === p).mouseOn === true && p === 'video_bg') || (this.props.isSelected.find(x => x.element === p).mouseOn === true && p === 'image_bg' )) {
             // returnObj.background = 'repeating-linear-gradient(45deg,#bcc6d9,#bcc6d9 20px,#ffffff 20px,#ffffff 40px)';
         } else {
             returnObj.boxShadow = 'none';
@@ -37,19 +37,19 @@ class TemplatePreview extends Component {
         if (this.props.curCat === 'Message' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'logo' && this.props.previewMode === 'Portrait'){
             returnObj.bottom = '5%';
         } else if (
-            (this.props.curCat === 'Message' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'main-title' && this.props.previewMode === 'Landscape') ||
-            (this.props.curCat === 'Message' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'main-title' && this.props.previewMode === 'Squared')
+            (this.props.curCat === 'Message' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'title' && this.props.previewMode === 'Landscape') ||
+            (this.props.curCat === 'Message' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'title' && this.props.previewMode === 'Squared')
             ){
             returnObj.bottom = '5%';
         }
 
         // If no subtitle at Frame category, change position of maintitle / logo
         if (
-            (this.props.curCat === 'Frame' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'main-title' && this.props.previewMode === 'Portrait') ||
-            (this.props.curCat === 'Frame' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'main-title' && this.props.previewMode === 'Squared')
+            (this.props.curCat === 'Frame' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'title' && this.props.previewMode === 'Portrait') ||
+            (this.props.curCat === 'Frame' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'title' && this.props.previewMode === 'Squared')
             ){
             returnObj.bottom = '22%';
-        } else if (this.props.curCat === 'Frame' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'main-title' && this.props.previewMode === 'Landscape'){
+        } else if (this.props.curCat === 'Frame' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'title' && this.props.previewMode === 'Landscape'){
             returnObj.top = '25%';
         } else if (
             (this.props.curCat === 'Frame' && !this.props.isSelected.find(x => x.element === 'subtitle').selected && p === 'logo' && this.props.previewMode === 'Portrait') || 
@@ -82,57 +82,57 @@ class TemplatePreview extends Component {
         // Code when animation is chosen
 
         //Attention animation
-        if (chosen === true && animation === 'Attention animatie - Flash'){
+        if (chosen === true && animation === 'Flash'){
             return `${elementInput} animated flash`;
-        } else if (chosen === true && animation === 'Attention animatie - Shake'){
+        } else if (chosen === true && animation === 'Shake'){
             return `${elementInput} animated shake`;
-        } else if (chosen === true && animation === 'Attention animatie - Pulse'){
+        } else if (chosen === true && animation === 'Pulse'){
             return `${elementInput} animated pulse`;
-        } else if (chosen === true && animation === 'Attention animatie - Tada'){
+        } else if (chosen === true && animation === 'Tada'){
             return `${elementInput} animated tada`;
-        } else if (chosen === true && animation === 'Attention animatie - Heartbeat'){
+        } else if (chosen === true && animation === 'Heartbeat'){
             return `${elementInput} animated heartBeat`;
-        } else if (chosen === true && animation === 'Attention animatie - Flip'){
+        } else if (chosen === true && animation === 'Flip'){
             return `${elementInput} animated flip`;
         }
 
 
         //Appear animation
-        if (chosen === true && animation === 'Appear animatie - Bounce in'){
+        if (chosen === true && animation === 'Bounce in'){
             return `${elementInput} animated bounceIn`;
-        } else if (chosen === true && animation === 'Appear animatie - Bounce in down'){
+        } else if (chosen === true && animation === 'Bounce in down'){
             return `${elementInput} animated bounceInDown`;
-        } else if (chosen === true && animation === 'Appear animatie - Bounce in left'){
+        } else if (chosen === true && animation === 'Bounce in left'){
             return `${elementInput} animated bounceInLeft`;
-        } else if (chosen === true && animation === 'Appear animatie - Bounce in right'){
+        } else if (chosen === true && animation === 'Bounce in right'){
             return `${elementInput} animated bounceInRight`;
-        } else if (chosen === true && animation === 'Appear animatie - Bounce in up'){
+        } else if (chosen === true && animation === 'Bounce in up'){
             return `${elementInput} animated bounceInUp`;
-        } else if (chosen === true && animation === 'Appear animatie - Fade in'){
+        } else if (chosen === true && animation === 'Fade in'){
             return `${elementInput} animated fadeIn`;
-        } else if (chosen === true && animation === 'Appear animatie - Fade in down'){
+        } else if (chosen === true && animation === 'Fade in down'){
             return `${elementInput} animated fadeInDown`;
-        } else if (chosen === true && animation === 'Appear animatie - Fade in left'){
+        } else if (chosen === true && animation === 'Fade in left'){
             return `${elementInput} animated fadeInLeft`;
-        } else if (chosen === true && animation === 'Appear animatie - Fade in right'){
+        } else if (chosen === true && animation === 'Fade in right'){
             return `${elementInput} animated fadeInRight`;
-        } else if (chosen === true && animation === 'Appear animatie - Fade in up'){
+        } else if (chosen === true && animation === 'Fade in up'){
             return `${elementInput} animated fadeInUp`;
-        } else if (chosen === true && animation === 'Appear animatie - Flip in X'){
+        } else if (chosen === true && animation === 'Flip in X'){
             return `${elementInput} animated flipInX`;
-        } else if (chosen === true && animation === 'Appear animatie - Flip in Y'){
+        } else if (chosen === true && animation === 'Flip in Y'){
             return `${elementInput} animated flipInY`;
-        } else if (chosen === true && animation === 'Appear animatie - Slide in down'){
+        } else if (chosen === true && animation === 'Slide in down'){
             return `${elementInput} animated slideInDown`;
-        } else if (chosen === true && animation === 'Appear animatie - Slide in left'){
+        } else if (chosen === true && animation === 'Slide in left'){
             return `${elementInput} animated slideInLeft`;
-        } else if (chosen === true && animation === 'Appear animatie - Slide in right'){
+        } else if (chosen === true && animation === 'Slide in right'){
             return `${elementInput} animated slideInRight`;
-        } else if (chosen === true && animation === 'Appear animatie - Slide in up'){
+        } else if (chosen === true && animation === 'Slide in up'){
             return `${elementInput} animated slideInUp`;
-        } else if (chosen === true && animation === 'Appear animatie - Zoom in'){
+        } else if (chosen === true && animation === 'Zoom in'){
             return `${elementInput} animated zoomIn`;
-        } else if (chosen === true && animation === 'Appear animatie - Jack in the box'){
+        } else if (chosen === true && animation === 'Jack in the box'){
             return `${elementInput} animated jackInTheBox`;
         }
 
@@ -148,35 +148,35 @@ class TemplatePreview extends Component {
                 <div className="innerElements">
                     <div className={this.posAnimation('logo')} style={this.getStyle('logo')}>
                         <span>Logo</span>
-                        <img className="selected" style={this.animationStyle('logo')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animated.png" alt="check"></img>
+                        <img className="selected" style={this.animationStyle('logo')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animted_icon.png" alt="check"></img>
                     </div>
-                    <div className={this.posAnimation('productimage')} style={this.getStyle('productimage')}>
+                    <div className={this.posAnimation('product_image')} style={this.getStyle('product_image')}>
                         <span>Product-image</span>
-                        <img className="selected" style={this.animationStyle('productimage')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animated.png" alt="check"></img>
+                        <img className="selected" style={this.animationStyle('product_image')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animted_icon.png" alt="check"></img>
                     </div>
-                    <div className={this.posAnimation('productvideo')} style={this.getStyle('productvideo')}>
+                    <div className={this.posAnimation('product_video')} style={this.getStyle('product_video')}>
                         <span>Product-video</span>
-                        <img className="selected" style={this.animationStyle('productvideo')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animated.png" alt="check"></img>
+                        <img className="selected" style={this.animationStyle('product_video')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animted_icon.png" alt="check"></img>
                     </div>
-                    <div className={this.posAnimation('main-title')} style={this.getStyle('main-title')}>
+                    <div className={this.posAnimation('title')} style={this.getStyle('title')}>
                         <span>Main title</span>
-                        <img className="selected" style={this.animationStyle('main-title')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animated.png" alt="check"></img>
+                        <img className="selected" style={this.animationStyle('title')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animted_icon.png" alt="check"></img>
                     </div>
                     <div className={this.posAnimation('subtitle')} style={this.getStyle('subtitle')}>
                         <span>Subtitle</span>
-                        <img className="selected" style={this.animationStyle('subtitle')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animated.png" alt="check"></img>
+                        <img className="selected" style={this.animationStyle('subtitle')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animted_icon.png" alt="check"></img>
                     </div> 
-                    <div className={this.posAnimation('backgroundvideo')} style={this.getStyle('backgroundvideo')}>
+                    <div className={this.posAnimation('video_bg')} style={this.getStyle('video_bg')}>
                         <span className="bg-vid-span">Background-video</span>
-                        <img className="selected" style={this.animationStyle('backgroundvideo')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animated.png" alt="check"></img>
+                        <img className="selected" style={this.animationStyle('video_bg')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animted_icon.png" alt="check"></img>
                     </div>
-                    <div className={this.posAnimation('background-image')} style={this.getStyle('background-image')}>
+                    <div className={this.posAnimation('image_bg')} style={this.getStyle('image_bg')}>
                         <span className="bg-vid-span">Background-image</span>
-                        <img className="selected" style={this.animationStyle('background-image')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animated.png" alt="check"></img>
+                        <img className="selected" style={this.animationStyle('image_bg')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animted_icon.png" alt="check"></img>
                     </div>
-                    <div className={this.posAnimation('pancake-element')}  style={this.getStyle('pancake-element')}>
+                    <div className={this.posAnimation('pancake')}  style={this.getStyle('pancake')}>
                         <span>Pancake Element</span>
-                        <img className="selected" style={this.animationStyle('pancake-element')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animated.png" alt="check"></img>
+                        <img className="selected" style={this.animationStyle('pancake')} src="https://maxedmatthew.nl/ofj/wp-content/uploads/2019/12/animted_icon.png" alt="check"></img>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 {
   "layerProperties": {
-    "29": {
+    "56": {
       "LAYER_IGNORE": false,
       "LAYER_SELECTOR": "",
       "LAYER_QUALITY": 60,
@@ -12,9 +12,9 @@
       "LAYER_PLACEHOLDER": null,
       "LAYER_INLINE": false,
       "LAYER_CLICK_URL": "",
-      "generatedId": "frame_bg"
+      "generatedId": "frame_video_bg"
     },
-    "30": {
+    "57": {
       "LAYER_IGNORE": false,
       "LAYER_SELECTOR": "",
       "LAYER_QUALITY": 60,
@@ -26,9 +26,9 @@
       "LAYER_PLACEHOLDER": null,
       "LAYER_INLINE": false,
       "LAYER_CLICK_URL": "",
-      "generatedId": "frame_logo"
+      "generatedId": "frame_image_bg"
     },
-    "31": {
+    "58": {
       "LAYER_IGNORE": false,
       "LAYER_SELECTOR": "",
       "LAYER_QUALITY": 60,
@@ -42,7 +42,21 @@
       "LAYER_CLICK_URL": "",
       "generatedId": "frame_product_image"
     },
-    "32": {
+    "59": {
+      "LAYER_IGNORE": false,
+      "LAYER_SELECTOR": "",
+      "LAYER_QUALITY": 60,
+      "LAYER_EXPORT": "png",
+      "LAYER_FLATTEN": false,
+      "LAYER_CLICKABLE": false,
+      "LAYER_INVISIBLE": false,
+      "LAYER_FALLBACK": false,
+      "LAYER_PLACEHOLDER": null,
+      "LAYER_INLINE": false,
+      "LAYER_CLICK_URL": "",
+      "generatedId": "frame_product_video"
+    },
+    "60": {
       "LAYER_IGNORE": false,
       "LAYER_SELECTOR": "",
       "LAYER_QUALITY": 60,
@@ -56,7 +70,7 @@
       "LAYER_CLICK_URL": "",
       "generatedId": "frame_title"
     },
-    "33": {
+    "61": {
       "LAYER_IGNORE": false,
       "LAYER_SELECTOR": "",
       "LAYER_QUALITY": 60,
@@ -70,7 +84,35 @@
       "LAYER_CLICK_URL": "",
       "generatedId": "frame_subtitle"
     },
-    "34": {
+    "62": {
+      "LAYER_IGNORE": false,
+      "LAYER_SELECTOR": "",
+      "LAYER_QUALITY": 60,
+      "LAYER_EXPORT": "svg",
+      "LAYER_FLATTEN": false,
+      "LAYER_CLICKABLE": false,
+      "LAYER_INVISIBLE": false,
+      "LAYER_FALLBACK": false,
+      "LAYER_PLACEHOLDER": null,
+      "LAYER_INLINE": false,
+      "LAYER_CLICK_URL": "",
+      "generatedId": "frame_product"
+    },
+    "63": {
+      "LAYER_IGNORE": false,
+      "LAYER_SELECTOR": "",
+      "LAYER_QUALITY": 60,
+      "LAYER_EXPORT": "png",
+      "LAYER_FLATTEN": false,
+      "LAYER_CLICKABLE": false,
+      "LAYER_INVISIBLE": false,
+      "LAYER_FALLBACK": false,
+      "LAYER_PLACEHOLDER": null,
+      "LAYER_INLINE": false,
+      "LAYER_CLICK_URL": "",
+      "generatedId": "frame_logo"
+    },
+    "64": {
       "LAYER_IGNORE": false,
       "LAYER_SELECTOR": "",
       "LAYER_QUALITY": 60,
