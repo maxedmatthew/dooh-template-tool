@@ -111,6 +111,7 @@ button:focus {
   padding: 10px 20px;
   display: none;
   margin: 40px auto 0;
+  transition: .2s ease-in;
 }
 .exportBtn:hover{
   background: #118968;
@@ -140,58 +141,50 @@ button:focus {
   background: #EEF2F9;
 }
 
-.lds-ellipsis {
+.lds-ring {
   display: inline-block;
   position: relative;
-  width: 80px;
-  height: 80px;
+  width: 34px;
+  height: 30px;
 }
-.lds-ellipsis div {
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
   position: absolute;
-  top: 33px;
-  width: 13px;
-  height: 13px;
+  width: 20px;
+  height: 20px;
+  margin: 4px 0px 4px 8px;
+  border: 3px solid #fff;
   border-radius: 50%;
-  background: #fff;
-  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
 }
-.lds-ellipsis div:nth-child(1) {
-  left: 8px;
-  animation: lds-ellipsis1 0.6s infinite;
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
 }
-.lds-ellipsis div:nth-child(2) {
-  left: 8px;
-  animation: lds-ellipsis2 0.6s infinite;
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
 }
-.lds-ellipsis div:nth-child(3) {
-  left: 32px;
-  animation: lds-ellipsis2 0.6s infinite;
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
 }
-.lds-ellipsis div:nth-child(4) {
-  left: 56px;
-  animation: lds-ellipsis3 0.6s infinite;
-}
-@keyframes lds-ellipsis1 {
+@keyframes lds-ring {
   0% {
-    transform: scale(0);
+    transform: rotate(0deg);
   }
   100% {
-    transform: scale(1);
+    transform: rotate(360deg);
   }
 }
-@keyframes lds-ellipsis3 {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
+
+.check-img {
+  width: 18px;
+  margin-left: 7px;
+  vertical-align: sub;
 }
-@keyframes lds-ellipsis2 {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(24px, 0);
-  }
+
+.download-img{
+  width: 16px;
+  margin-left: 7px;
+  vertical-align: unset;
 }

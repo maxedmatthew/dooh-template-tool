@@ -2,7 +2,6 @@ import { readPsd } from 'ag-psd';
 import { writePsdBuffer } from 'ag-psd';
 import 'ag-psd/initialize-canvas';
 import axios from 'axios';
-import downloadFile from './downloadFile';
 
 
 const writePSD = (data, templateData, p) => {
@@ -70,7 +69,6 @@ const writePSD = (data, templateData, p) => {
     console.log(error)
   })
 
-  downloadFile();
   return true;
 }
 
